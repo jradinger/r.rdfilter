@@ -25,7 +25,7 @@ r.watershed -f elevation="elevation.10m@PERMANENT" accumulation="accum"
 r.mapcalc "accum_abs = abs(accum)"
 r.stream.extract elevation="elevation.10m@PERMANENT" threshold=200 stream_rast="stream" direction="dirs"
 r.stream.basins dir="dirs" coors="602140,4927950" basins="basins"
-r.mapcalc "sample_stream = basins &amp;&amp; stream"
+r.mapcalc "sample_stream = basins stream"
 
 # Extract geological information for sample stream course
 r.mapcalc "geology_sample_stream = if(sample_stream,geology@PERMANENT,null())"
